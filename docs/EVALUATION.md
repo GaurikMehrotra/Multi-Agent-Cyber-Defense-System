@@ -20,7 +20,7 @@ Hosted comparison after owner-approved evidence export and provider credentials,
 python -m dotenv run -- python -c 'from src.eval.comparison import evaluate; from src.llm.hosted import Hosted; print(evaluate(output="artifacts/hosted-comparison", backend_factory=Hosted))'
 ```
 
-Provider free tiers and APIs must be checked currently. Costs remain unknown unless actual usage/prices are supplied; character-derived token estimates are not billed token counts. No hosted result has run in the cloud setup.
+The selected candidate and private configuration steps are in [HOSTED_EVALUATION.md](HOSTED_EVALUATION.md). Provider free tiers and APIs must be checked currently. Costs remain unknown unless actual usage/prices are supplied; character-derived token estimates are not billed token counts. No hosted result has run in the cloud setup.
 
 Replay: 12 generated flow records, real CPU model inference, then FakeLLM graph investigation. Time-to-detect and time-to-decision mean wall-clock processing from a ready normalized flow to its score/proposal. This accelerated offline replay excludes collection delays, production queue waits and inter-arrival sleeps; it is not a real-world detection SLA.
 

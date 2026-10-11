@@ -4,7 +4,7 @@ These results are **generated-data/FakeLLM engineering demonstrations**, not pub
 
 | Check | Current result |
 |---|---|
-| pytest | 94 executed tests passed |
+| pytest | 105 executed tests passed |
 | Ruff lint and format | Passed |
 | Bandit | Passed with narrow documented fixed-subprocess/lab-listener exceptions |
 | Installed + official CPU source-release advisory audit | Passed after CPU PyTorch upgrade; OS/native image vulnerability scanning is separate |
@@ -20,6 +20,7 @@ These results are **generated-data/FakeLLM engineering demonstrations**, not pub
 | Detection harness | 45 method/seed/split evaluations completed on generated rows; SHAP/checkpoint restoration exercised |
 | Agent comparison | 108 current-batch runs: 6 modes × 6 scenarios × 3 repeats |
 | Safety corpus | 62 attempts blocked, 0 escaped; FakeLLM injection behavior is not real-model robustness |
+| Dataset/provider follow-up | Source pages and full WTMC2021 paper read; manifest validation and hosted contract tested with mocks |
 | Human review | 30 blank assignments linked to generated incident files; review **not performed** |
 
 ## FakeLLM comparison
@@ -61,6 +62,6 @@ Validation-selected thresholds; all methods share the same one-pass threshold-se
 
 ## Required external milestones
 
-Current public-source license/terms/paper review was blocked by proxy 403; required domains were saved in the environment draft, not activated or verified. Public-data benchmarks, hosted model/provider credentials and permission to export telemetry, 30 human report reviews, and actual laptop measurements remain outstanding. Optional CrewAI/AutoGen and heavier GPU experiments are not implemented and have no results.
+An initial proxy denial was resolved on retry: authoritative dataset terms, the WTMC2021 paper, and newer correction documentation were reviewed. See DATA_SOURCES.md and reports/source-review.json for the exact review scope. Exact corrected-archive rights and owner confirmation still need recording; a reviewed page is not a completed benchmark. Groq openai/gpt-oss-20b is selected from the current official SDK, with documented request/provenance tests; no private provider key is available. Public-data benchmarks, hosted model/provider credentials and permission to export telemetry, 30 human report reviews, and actual laptop measurements remain outstanding. Optional CrewAI/AutoGen and heavier GPU experiments are not implemented and have no results.
 
 Full per-run evidence, raw logs, model weights and caches remain local under ignored data/artifacts/runtime directories. Publication of this code is not completion of those research milestones. See docs/PHASES.md and MODEL_CARD.md.

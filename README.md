@@ -2,7 +2,7 @@
 
 A defensive lab project combining **offline Zeek/Suricata telemetry**, CPU **XGBoost + PyTorch autoencoder** flow scoring, and a **LangGraph investigation workflow** with evidence-linked hypotheses, fixed scope guards, human approval and simulated response.
 
-**Current status:** runnable development implementation and generated-data evaluations. This is not a validated production IDS. Public dataset license review, public-data benchmarks, hosted-model evaluation, 30 human report reviews and laptop resource measurements are outstanding external milestones. [Phase-by-phase status and commands](docs/PHASES.md) distinguish implemented code from unperformed research. CrewAI, AutoGen and heavier GPU models are optional and not implemented.
+**Current status:** runnable development implementation and generated-data evaluations. This is not a validated production IDS. Authoritative dataset terms and a key CIC reanalysis have now been reviewed; exact archive/variant approval, public-data benchmarks, hosted-model evaluation, 30 human report reviews and laptop resource measurements remain outstanding. [Source review](DATA_SOURCES.md) and [selected hosted model](docs/HOSTED_EVALUATION.md) record the current findings and prerequisites. [Phase-by-phase status and commands](docs/PHASES.md) distinguish implemented code from unperformed research. CrewAI, AutoGen and heavier GPU models are optional and not implemented.
 
 > Defensive and authorized scope only. Scanning systems you do not own or lack written authorization to test can be illegal. Nmap accepts only two fixed isolated lab assets. There is no real response enforcement. Read [SAFETY.md](SAFETY.md) before running the lab.
 

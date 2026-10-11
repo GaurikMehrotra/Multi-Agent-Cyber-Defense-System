@@ -1,0 +1,117 @@
+{
+  "checked_at_utc": "2026-10-11T17:53:20.216721+00:00",
+  "scope": "Source-page and paper review only; no dataset approval, download, benchmark or hosted evaluation performed.",
+  "sources": [
+    {
+      "url": "https://www.unb.ca/cic/datasets/ids-2017.html",
+      "http_status": 200,
+      "bytes": 75847,
+      "sha256": "7bec2e72649fff7a0b301f2958ff91cdccb9161131534fafafee2b2ce8087521"
+    },
+    {
+      "url": "https://www.unb.ca/cic/datasets/ids-2018.html",
+      "http_status": 200,
+      "bytes": 96799,
+      "sha256": "c1258503f336f0dd4b1877ce5506b8d870b2ddf67e14f90348c42bfd3258b9fe"
+    },
+    {
+      "url": "https://research.unsw.edu.au/projects/unsw-nb15-dataset",
+      "http_status": 200,
+      "bytes": 43966,
+      "sha256": "cd14fde8c9cca89f3ac092edfb84ce76d8142f0900b1bcceaddf35d439bd53bb"
+    },
+    {
+      "url": "https://www.stratosphereips.org/datasets-ctu13",
+      "http_status": 200,
+      "bytes": 118096,
+      "sha256": "f75100f4a3228691b3d9b0815d93a2c87fd4b552eac15a4a1e89b25cce8eaf5f"
+    },
+    {
+      "url": "https://www.stratosphereips.org/datasets-faq",
+      "http_status": 200,
+      "bytes": 103231,
+      "sha256": "d01dcc2ba31fa276c03960b4c3019723fa00e1bd533fb274e6f3fab6df5fafac"
+    },
+    {
+      "url": "https://intrusion-detection.distrinet-research.be/WTMC2021/",
+      "http_status": 200,
+      "bytes": 5113,
+      "sha256": "ae954aaf0eb889da9c42309474454db5b814bb20e8545d7812d2ac96f0720d4f"
+    },
+    {
+      "url": "https://intrusion-detection.distrinet-research.be/WTMC2021/extended_doc.html",
+      "http_status": 200,
+      "bytes": 21487,
+      "sha256": "770d19e58d78a7122f4def02a0804b5e98555c1d9b0cdf09553d4cb9a87521a2"
+    },
+    {
+      "url": "https://intrusion-detection.distrinet-research.be/WTMC2021/tools_datasets.html",
+      "http_status": 200,
+      "bytes": 7346,
+      "sha256": "39c8d0cefb9e141bf4c1db4af72d6af5bfd02fc125a0780c78b0510f282a9309"
+    },
+    {
+      "url": "https://intrusion-detection.distrinet-research.be/WTMC2021/Resources/wtmc2021_Engelen_Troubleshooting.pdf",
+      "http_status": 200,
+      "bytes": 151145,
+      "sha256": "c66cd93384d6061b413a0ce0f753ae1e923eb5ccb42d72a10225a8c229c21b1f"
+    },
+    {
+      "url": "https://intrusion-detection.distrinet-research.be/CNS2022/index.html",
+      "http_status": 200,
+      "bytes": 4712,
+      "sha256": "55dbde916d58fd2ad5f842a01cf44aa821c5902098ed5438484666255251450c"
+    },
+    {
+      "url": "https://intrusion-detection.distrinet-research.be/CNS2022/CICIDS2017.html",
+      "http_status": 200,
+      "bytes": 53159,
+      "sha256": "1ca975b9316d922e9225b221e96e0f73998d01bdae008b13b7b2dcf7bb6de2cc"
+    },
+    {
+      "url": "https://intrusion-detection.distrinet-research.be/CNS2022/CSECICIDS2018.html",
+      "http_status": 200,
+      "bytes": 70001,
+      "sha256": "c9edddbcba999cf4a004a090d991e915ded9226cae3f0e9589fa302631f9803b"
+    },
+    {
+      "url": "https://intrusion-detection.distrinet-research.be/CNS2022/Dataset_Download.html",
+      "http_status": 200,
+      "bytes": 1512,
+      "sha256": "19a64bbb2a295a2aa627a69f26b049785c6ce141d3ef34e1bd60c69e24129b94"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/groq/groq-python/main/README.md",
+      "http_status": 200,
+      "bytes": 15749,
+      "sha256": "fbe2d274b599ac6cb9bf4a201bd80301f8274edfa3f6e6718da6794afc1473ae"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/groq/groq-python/main/src/groq/_client.py",
+      "http_status": 200,
+      "bytes": 22802,
+      "sha256": "bad19984bb5b4541b61181811eef92b6a9b9a5e2dd59bdfae786ddad93981de8"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/groq/groq-python/main/src/groq/resources/chat/completions.py",
+      "http_status": 200,
+      "bytes": 92929,
+      "sha256": "03b96344d5c876a7b385d891c1af2c64a77883c3fd1518a1db5e4cc0f3729f01"
+    }
+  ],
+  "still_blocked": [
+    "https://console.groq.com/docs/models",
+    "https://console.groq.com/docs/quickstart"
+  ],
+  "missing_prerequisites": [
+    "dataset owner approval and reviewed canonical samples",
+    "LLM_API_KEY configured privately",
+    "30 human reviews",
+    "actual laptop measurement results"
+  ],
+  "selected_hosted_candidate": {
+    "provider": "Groq",
+    "model": "openai/gpt-oss-20b",
+    "basis": "Current official SDK README example; live account availability and free-tier terms not verified."
+  }
+}

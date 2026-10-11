@@ -9,7 +9,7 @@ Run commands from the repository root with the Python 3.12 virtual environment a
 | 1 LOCAL | `python -m pip install -r requirements.txt`; `python scripts/init_env.py` | CPU stack, private keys, safety/config scaffold. Implemented and installed; preserve existing .env | Add CPU development environment and safety policy |
 | 2 core | `make core`; `python scripts/migrate.py` or `docker compose --profile agents run --rm --no-deps api alembic upgrade head` | PostgreSQL schema; content IDs; file hash chain and DB audit mirror | Add evidence persistence and append-only audit |
 | 3 detect | `make sensors` | Tiny offline DNS PCAP yields Zeek conn/dns and Suricata demonstration alert; no live capture | Add offline sensors and malformed-log parsers |
-| 4 LOCAL | Review DATA_SOURCES.md; `python -m src.eval.datasets data/source.csv data/source.manifest.json` | Importer requires actual owner confirmation. **Public terms review blocked; no data imported** | Add explicit dataset provenance and approval gate |
+| 4 LOCAL | Review DATA_SOURCES.md; `python -m src.eval.datasets data/source.csv data/source.manifest.json` | Importer requires actual owner confirmation. **Source terms and WTMC2021 paper reviewed; archive-specific approval/sample preparation remain; no data imported** | Add explicit dataset provenance and approval gate |
 | 5 LOCAL | `python -m pytest tests/test_detection.py -q` | No time, exact-flow or held-family leakage in tested partitions | Add leakage-safe feature and split pipelines |
 | 6 LOCAL | `make detection-eval` | Metric harness and transparent baselines; generated plumbing only | Add fixed-threshold metrics and detector baselines |
 | 7 LOCAL | `make detection-eval` | CPU XGBoost and SHAP arrays; independent research accuracy unverified | Add XGBoost and feature attribution |
@@ -33,8 +33,8 @@ Run commands from the repository root with the Python 3.12 virtual environment a
 
 ## External work still required
 
-1. Enable the saved review-domain additions, review current licenses/citations/known-issue analyses, approve local manifests and supply canonical source/external flows with verified feature semantics and benign exposure.
-2. Choose a currently available hosted model/provider, review data retention/export policy and free-tier terms, enter credentials privately, and run the matched evaluation. No secret should be pasted into chat.
+1. Review the recorded current terms and correction findings in DATA_SOURCES.md; confirm exact archive/variant rights and approved purpose, then supply canonical source/external flows with verified feature semantics and benign exposure. Dataset pages became reachable on retry; the original proxy denial is no longer the source-review blocker.
+2. Groq openai/gpt-oss-20b is the selected hosted candidate. Review account availability, data retention/export policy and free-tier terms, enter credentials privately, and run the matched evaluation using docs/HOSTED_EVALUATION.md. No secret should be pasted into chat.
 3. Complete the 30-report human review CSV against actual linked evidence. Generating it does not perform review.
 4. Run per-stage CPU/RAM/latency and aggregate container measurements on the actual 8 GiB WSL2 laptop. Cloud measurements cannot substitute.
 
