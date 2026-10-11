@@ -1,0 +1,44 @@
+{
+  "multi": {
+    "accuracy": 0.3333333333333333,
+    "failure_rate": 0.0,
+    "decision_consistency": 1.0,
+    "mean_latency_seconds": 0.045522816944362096,
+    "reference_grounding_rate": 1.0
+  },
+  "pipeline": {
+    "accuracy": 0.3333333333333333,
+    "failure_rate": 0.0,
+    "decision_consistency": 1.0,
+    "mean_latency_seconds": 0.02934175338876028,
+    "reference_grounding_rate": 1.0
+  },
+  "single": {
+    "accuracy": 0.3333333333333333,
+    "failure_rate": 0.0,
+    "decision_consistency": 1.0,
+    "mean_latency_seconds": 0.007295614777881888,
+    "reference_grounding_rate": 1.0
+  },
+  "without_reviewer": {
+    "accuracy": 0.3333333333333333,
+    "failure_rate": 0.0,
+    "decision_consistency": 1.0,
+    "mean_latency_seconds": 0.051287033611111435,
+    "reference_grounding_rate": 1.0
+  },
+  "without_verification": {
+    "accuracy": 0.3333333333333333,
+    "failure_rate": 0.0,
+    "decision_consistency": 1.0,
+    "mean_latency_seconds": 0.04801773811100753,
+    "reference_grounding_rate": 1.0
+  },
+  "without_enrichment": {
+    "accuracy": 0.3333333333333333,
+    "failure_rate": 0.0,
+    "decision_consistency": 1.0,
+    "mean_latency_seconds": 0.05199199016664756,
+    "reference_grounding_rate": 1.0
+  }
+}

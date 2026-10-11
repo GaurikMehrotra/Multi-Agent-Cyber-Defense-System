@@ -1,0 +1,6 @@
+# No arbitrary flags or NSE permitted. Config is checked against immutable code profiles.
+connect:
+  ports: [8000, 8001]
+  timeout_seconds: 20
+  max_rate: 5
+  max_retries: 0

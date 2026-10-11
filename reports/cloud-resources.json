@@ -1,0 +1,41 @@
+{
+  "scope": "cloud instance only; not laptop; container values are one snapshot, not peaks",
+  "detection_process_peak_ram_mib": 573.5,
+  "containers": [
+    {
+      "name": "cyber-defense-nmap-1",
+      "memory_usage": "20.23MiB / 128MiB",
+      "cpu": "0.01%"
+    },
+    {
+      "name": "cyber-defense-dashboard-1",
+      "memory_usage": "47.23MiB / 512MiB",
+      "cpu": "0.40%"
+    },
+    {
+      "name": "cyber-defense-api-1",
+      "memory_usage": "59.45MiB / 768MiB",
+      "cpu": "0.19%"
+    },
+    {
+      "name": "cyber-defense-worker-1",
+      "memory_usage": "77.41MiB / 1.5GiB",
+      "cpu": "0.15%"
+    },
+    {
+      "name": "cyber-defense-web2-1",
+      "memory_usage": "35.31MiB / 64MiB",
+      "cpu": "7.72%"
+    },
+    {
+      "name": "cyber-defense-web-1",
+      "memory_usage": "25.02MiB / 64MiB",
+      "cpu": "0.01%"
+    },
+    {
+      "name": "cyber-defense-postgres-1",
+      "memory_usage": "39.5MiB / 1GiB",
+      "cpu": "1.61%"
+    }
+  ]
+}

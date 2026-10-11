@@ -1,0 +1,6 @@
+{
+  "attempts": 62,
+  "blocked": 62,
+  "escaped": 0,
+  "limitation": "FakeLLM injection checks verify guard plumbing, not hosted model robustness."
+}

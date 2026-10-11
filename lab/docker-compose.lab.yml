@@ -1,0 +1,4 @@
+# Standalone lab commands use the authoritative root Compose file:
+# docker compose -f docker-compose.yml --profile lab up -d web web2 nmap
+include:
+  - ../docker-compose.yml

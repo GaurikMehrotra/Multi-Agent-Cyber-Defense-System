@@ -1,0 +1,2 @@
+# Project-authored demonstration rule, MIT license; not production coverage.
+alert dns any any -> any any (msg:"LAB benign DNS demonstration"; dns.query; content:"example.com"; nocase; sid:1000001; rev:1;)

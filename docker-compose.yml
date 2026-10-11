@@ -1,0 +1,174 @@
+name: cyber-defense
+services:
+  postgres:
+    image: postgres:16.6-alpine@sha256:1d04b9ba1d4996401f2552b51beda8187f175c0645c091e4781134fc9c9a3eef
+    profiles: [core, agents]
+    environment:
+      POSTGRES_USER: soc
+      POSTGRES_DB: soc
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/init_env.py}
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["postgres-data:/var/lib/postgresql/data"]
+    networks: [core]
+    mem_limit: 1g
+    cpus: 1
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U soc -d soc"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  api:
+    image: cyber-defense-app:dev
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    build: {context: ., dockerfile: docker/Dockerfile}
+    profiles: [agents]
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://soc:${POSTGRES_PASSWORD}@postgres:5432/soc
+    depends_on: {postgres: {condition: service_healthy}}
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["./runtime:/app/runtime"]
+    networks: [core]
+    mem_limit: 768m
+    cpus: 1
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+  worker:
+    image: cyber-defense-app:dev
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    build: {context: ., dockerfile: docker/Dockerfile}
+    profiles: [agents]
+    command: [python, -m, src.api.worker]
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://soc:${POSTGRES_PASSWORD}@postgres:5432/soc
+      VERIFY_MODE: ${VERIFY_MODE:-mock}
+    depends_on: {postgres: {condition: service_healthy}}
+    volumes: ["./runtime:/app/runtime"]
+    networks: [core, lab]
+    mem_limit: 1536m
+    cpus: 2
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "from src.events.store import sessions; from sqlalchemy import text; sessions()().execute(text('SELECT 1'))"]
+      interval: 15s
+      timeout: 3s
+      retries: 10
+  dashboard:
+    image: cyber-defense-app:dev
+    build: {context: ., dockerfile: docker/Dockerfile}
+    profiles: [agents]
+    command: [streamlit, run, app/app.py, --server.address=0.0.0.0]
+    environment: {API_URL: "http://api:8000"}
+    depends_on: {api: {condition: service_healthy}}
+    ports: ["127.0.0.1:8501:8501"]
+    networks: [core]
+    mem_limit: 512m
+    cpus: 1
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health', timeout=2)"]
+      interval: 15s
+      timeout: 3s
+      retries: 10
+  zeek:
+    image: zeek/zeek:7.0.4@sha256:a6492105946f483606ee2c907a6881c6d9ae18a1d0e9171cde0b30355d57a9da
+    profiles: [detect]
+    network_mode: none
+    entrypoint: [zeek]
+    command: [-r, /input/benign.pcap, "LogAscii::use_json=T"]
+    working_dir: /output
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    volumes: ["./data/pcaps:/input:ro", "./data/zeek:/output"]
+    mem_limit: 384m
+    cpus: 1
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+  suricata:
+    image: jasonish/suricata:7.0.8@sha256:89b300fb5d00f182359a1305543e828a804ede7f1685e75b05f607f7372428c6
+    profiles: [detect]
+    network_mode: none
+    entrypoint: [suricata]
+    command: [--runmode, single, -c, /rules/suricata.yaml, -r, /input/benign.pcap, -l, /output]
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    volumes: ["./data/pcaps:/input:ro", "./data/suricata:/output", "./configs:/rules:ro"]
+    mem_limit: 384m
+    cpus: 1
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+  web:
+    image: python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+    profiles: [lab]
+    user: "10001:10001"
+    command: [python, /server.py]
+    volumes: ["./lab/services/server.py:/server.py:ro"]
+    networks: {lab: {ipv4_address: 172.30.0.10}}
+    mem_limit: 64m
+    cpus: 0.25
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  web2:
+    image: python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+    profiles: [lab]
+    user: "10001:10001"
+    command: [python, /server.py]
+    environment: {PORT: "8001"}
+    volumes: ["./lab/services/server.py:/server.py:ro"]
+    networks: {lab: {ipv4_address: 172.30.0.11}}
+    mem_limit: 64m
+    cpus: 0.25
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  traffic:
+    image: cyber-defense-traffic:dev
+    build: {context: ., dockerfile: lab/Dockerfile.traffic}
+    profiles: [lab]
+    depends_on: {web: {condition: service_healthy}, web2: {condition: service_healthy}}
+    networks: [lab]
+    volumes: ["./data/pcaps:/output"]
+    mem_limit: 128m
+    cpus: 0.25
+    cap_drop: [ALL]
+    cap_add: [NET_RAW, NET_ADMIN, SETUID, SETGID, DAC_OVERRIDE]
+    security_opt: [no-new-privileges:true]
+  nmap:
+    image: cyber-defense-nmap:dev
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    build: {context: ., dockerfile: docker/Dockerfile.nmap}
+    profiles: [lab]
+    environment: {VERIFY_API_KEY: "${VERIFY_API_KEY:?Run scripts/init_env.py}"}
+    networks: {lab: {ipv4_address: 172.30.0.20}}
+    volumes: ["./runtime:/app/runtime"]
+    mem_limit: 128m
+    cpus: 0.5
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+networks:
+  core: {internal: true}
+  lab:
+    internal: true
+    ipam: {config: [{subnet: 172.30.0.0/24}]}
+volumes:
+  postgres-data:

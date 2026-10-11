@@ -1,0 +1,20 @@
+seed: 42
+threads: 2
+features: [duration, orig_bytes, resp_bytes, orig_pkts, resp_pkts, dest_port]
+threshold: 0.5
+confidence_gate: 0.8
+budgets:
+  tools: 12
+  scans: 1
+  llm: 6
+  seconds: 60
+limits:
+  rows: 100
+  result_bytes: 65536
+  request_bytes: 65536
+  requests_per_minute: 60
+models:
+  xgb_estimators: 40
+  ae_epochs: 10
+  ae_hidden: 8
+  ae_quantile: 0.99

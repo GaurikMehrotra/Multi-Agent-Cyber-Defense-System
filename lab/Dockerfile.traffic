@@ -1,0 +1,8 @@
+FROM python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+RUN --mount=type=secret,id=proxy_ca,mode=0444 \
+    sed -i 's|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list.d/debian.sources && \
+    if [ -s /run/secrets/proxy_ca ]; then export SSL_CERT_FILE=/run/secrets/proxy_ca; apt_opt='-o Acquire::https::CaInfo=/run/secrets/proxy_ca'; else apt_opt=''; fi && \
+    apt-get $apt_opt update && apt-get $apt_opt install -y --no-install-recommends tcpdump=4.99.5-2 && rm -rf /var/lib/apt/lists/*
+COPY lab/traffic_gen/generate.py /generate.py
+COPY lab/traffic_gen/capture.sh /capture.sh
+ENTRYPOINT ["sh", "/capture.sh"]

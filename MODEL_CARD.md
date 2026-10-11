@@ -1,0 +1,13 @@
+# Model card
+
+Purpose: CPU-only development of defensive flow scoring and evidence-grounded investigation. Models propose hypotheses; they do not enforce response or determine guilt.
+
+Models: XGBoost depth-3 histogram trees on six log-transformed numeric flow features; small PyTorch dense autoencoder trained only on benign rows with StandardScaler fitted on benign training rows. Reconstruction threshold is the 99th percentile of **benign validation** errors. Bounded anomaly scores and weighted fusion are not calibrated probabilities. Calibration quality is measured with Brier score and ECE, not assumed; deploy only after fitting/calibration and evaluation on independent data.
+
+Features: duration, original/response bytes, original/response packets, destination port. Excluded: addresses, labels, attack names, dataset IDs and timestamps. Temporal, family-held-out and external-dataset splits are required, with content-based flow deduplication first. Flow IDs detect exact canonical records; cross-session dependence remains a limitation.
+
+All methods receive the same one-pass validation threshold search under maximum 5% FPR; tree and AE hyperparameters are fixed in config, not optimized on test sets. Suricata-only uses aligned alert confidence supplied by the importer; on generated fixtures this is a synthetic score, not actual sensor performance. Equal threshold tuning does not imply equal training cost. Benchmarks report fixed 0.5 thresholds and validation-selected thresholds, per-family recall, precision, FPR, alerts/explicit benign observation day, Brier/ECE and seed mean ± sample std. SHAP explains feature attribution, not causation.
+
+Run `make detection-eval` for **generated plumbing validation only**. No public IDS or hosted-model accuracy is claimed. Run the public-data command in README after licenses, column mapping and observation exposure are reviewed. The FakeLLM intentionally escalates every case; 100% consistency is determinism, not intelligence. Its authored-scenario decision accuracy is 2/6. A real-model evaluation requires credentials, permission to export evidence and current provider terms. Cost fields remain null without real usage and prices; tokens are explicitly estimates.
+
+The manual-review CSV contains 30 blank review assignments. Nobody has performed the requested human accuracy review. LLM-as-judge scores from small models are noisy and are not a substitute. Laptop latency/RAM and Kaggle quota claims remain unmeasured; cloud process peaks cannot be reported as laptop results. No clinical, enterprise or real-time production reliability is claimed.

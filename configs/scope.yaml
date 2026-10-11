@@ -1,0 +1,3 @@
+# Documentation only: tool authorization is hard-coded and cannot read overrides.
+lab_cidr: 172.30.0.0/24
+assets: [172.30.0.10, 172.30.0.11]

@@ -1,0 +1,23 @@
+%YAML 1.1
+---
+vars:
+  address-groups:
+    HOME_NET: "[172.30.0.0/24]"
+    EXTERNAL_NET: "!$HOME_NET"
+default-rule-path: /rules
+rule-files: [local.rules]
+outputs:
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      types: [alert, dns, http, tls, flow, stats]
+logging:
+  default-log-level: notice
+  outputs:
+    - console:
+        enabled: yes
+
+classification-file: /rules/classification.config
+reference-config-file: /rules/reference.config
+threshold-file: /rules/threshold.config

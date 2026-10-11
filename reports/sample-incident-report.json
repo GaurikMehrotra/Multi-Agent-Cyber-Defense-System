@@ -1,0 +1,17 @@
+{
+  "claims": [
+    {
+      "hypothesis": "Observed activity warrants human investigation; maliciousness is unproven.",
+      "confidence": 0.5,
+      "evidence_ids": [
+        "d91e89adca51246e9d4973951751cecb6337e46a905e6bdfac644ab2420fe5d1",
+        "6433ad1622d1cbe60663651b21915f09419c6bda5b3de4959b9d1a4b5e41fe9f",
+        "849fa5509c2c0e6996349ea7a6c1b3e1ff3d1a750533e1add58576b9f6abadb0"
+      ],
+      "technique_id": null
+    }
+  ],
+  "decision": "escalate",
+  "model": "fake-deterministic-v1",
+  "termination": "analysis_complete"
+}

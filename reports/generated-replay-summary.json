@@ -1,0 +1,8 @@
+{
+  "provenance": "generated_cpu_replay_fake_llm",
+  "records": 12,
+  "mean_time_to_detect_seconds": 0.005695765416627789,
+  "mean_time_to_decision_seconds": 0.0213387751667445,
+  "definition": "Per-record wall-clock processing from ready flow to score/proposal; excludes capture/queue delays and inter-event waits.",
+  "failures": 0
+}

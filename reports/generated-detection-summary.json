@@ -1,0 +1,682 @@
+[
+  {
+    "split": "temporal",
+    "method": "xgboost",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9583333333333334,
+      "std": 0.0
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.021392473950982094,
+      "std": 0.0
+    },
+    "ece": {
+      "mean": 0.03151442568438749,
+      "std": 0.0
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 0.9166666666666666,
+        "std": 0.0
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "temporal",
+    "method": "autoencoder",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.34722222222222227,
+      "std": 0.3871488851323987
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.18284517526626587,
+      "std": 0.05972007005102381
+    },
+    "ece": {
+      "mean": 0.2364724347523103,
+      "std": 0.03315440707101239
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.4166666666666667,
+        "std": 0.36324157862838946
+      },
+      "scan_like": {
+        "mean": 0.2777777777777778,
+        "std": 0.4110735718596873
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 0.6666666666666666,
+        "std": 0.5773502691896258
+      }
+    }
+  },
+  {
+    "split": "temporal",
+    "method": "suricata",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.7916666666666666,
+      "std": 0.0
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.15949671038071664,
+      "std": 0.0
+    },
+    "ece": {
+      "mean": 0.24325607586285306,
+      "std": 0.0
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.75,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 0.8333333333333334,
+        "std": 0.0
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "temporal",
+    "method": "heuristic",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9166666666666666,
+      "std": 0.0
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.09137404597340627,
+      "std": 0.0
+    },
+    "ece": {
+      "mean": 0.28547344237849603,
+      "std": 0.0
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.9166666666666666,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 0.9166666666666666,
+        "std": 0.0
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "temporal",
+    "method": "fusion",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9444444444444445,
+      "std": 0.024056261216234453
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.08344710692558188,
+      "std": 0.010280017283925798
+    },
+    "ece": {
+      "mean": 0.22415403303159218,
+      "std": 0.0016511434148133248
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.9722222222222222,
+        "std": 0.048112522432468836
+      },
+      "scan_like": {
+        "mean": 0.9166666666666666,
+        "std": 0.0
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "attack_disjoint",
+    "method": "xgboost",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9166666666666666,
+      "std": 0.0
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.028370609506964684,
+      "std": 0.0
+    },
+    "ece": {
+      "mean": 0.02354335671083795,
+      "std": 4.2491873609703695e-18
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.9166666666666666,
+        "std": 0.0
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "attack_disjoint",
+    "method": "autoencoder",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.3055555555555555,
+      "std": 0.3154949081000152
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.13036098331212997,
+      "std": 0.03657418441227332
+    },
+    "ece": {
+      "mean": 0.17658415930000723,
+      "std": 0.02595038190075126
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.3055555555555555,
+        "std": 0.3154949081000152
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "attack_disjoint",
+    "method": "suricata",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.5833333333333334,
+      "std": 0.0
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.11231835298968927,
+      "std": 0.0
+    },
+    "ece": {
+      "mean": 0.15021166332120656,
+      "std": 0.0
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.5833333333333334,
+        "std": 0.0
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "attack_disjoint",
+    "method": "heuristic",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9166666666666666,
+      "std": 0.0
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.10911293279016099,
+      "std": 0.0
+    },
+    "ece": {
+      "mean": 0.3164797030603835,
+      "std": 0.0
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.9166666666666666,
+        "std": 0.0
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "attack_disjoint",
+    "method": "fusion",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.7777777777777778,
+      "std": 0.048112522432468836
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.06164770247590854,
+      "std": 0.006235018735423468
+    },
+    "ece": {
+      "mean": 0.2066422840080525,
+      "std": 0.0067290628437258115
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.7777777777777778,
+        "std": 0.048112522432468836
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "cross_dataset",
+    "method": "xgboost",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9583333333333334,
+      "std": 0.0
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.021392473950982094,
+      "std": 0.0
+    },
+    "ece": {
+      "mean": 0.03151458928671976,
+      "std": 0.0
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.9333333333333332,
+        "std": 1.3597399555105182e-16
+      },
+      "scan_like": {
+        "mean": 0.9833333333333333,
+        "std": 0.0
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "cross_dataset",
+    "method": "autoencoder",
+    "precision": {
+      "mean": 0.848908587003825,
+      "std": 0.09779205653315173
+    },
+    "recall": {
+      "mean": 0.36944444444444446,
+      "std": 0.35904322446891684
+    },
+    "fpr": {
+      "mean": 0.03888888888888889,
+      "std": 0.00481125224324688
+    },
+    "alerts_per_benign_day": {
+      "mean": 4.666666666666667,
+      "std": 0.5773502691896258
+    },
+    "brier": {
+      "mean": 0.2027509162823359,
+      "std": 0.0664625149730723
+    },
+    "ece": {
+      "mean": 0.2095456798405697,
+      "std": 0.020384129436006003
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.3611111111111111,
+        "std": 0.3367876570272817
+      },
+      "scan_like": {
+        "mean": 0.37777777777777777,
+        "std": 0.3823659290571058
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 0.7505668934240363,
+        "std": 0.145319455510314
+      },
+      "scan_like": {
+        "mean": 0.7379146627204342,
+        "std": 0.1728382286818941
+      }
+    }
+  },
+  {
+    "split": "cross_dataset",
+    "method": "suricata",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9416666666666668,
+      "std": 1.3597399555105182e-16
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.12702079338626973,
+      "std": 0.0
+    },
+    "ece": {
+      "mean": 0.23808451972661415,
+      "std": 0.0
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.9499999999999998,
+        "std": 1.3597399555105182e-16
+      },
+      "scan_like": {
+        "mean": 0.9333333333333332,
+        "std": 1.3597399555105182e-16
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "cross_dataset",
+    "method": "heuristic",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9333333333333332,
+      "std": 1.3597399555105182e-16
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.09506352362221167,
+      "std": 0.0
+    },
+    "ece": {
+      "mean": 0.289940597677524,
+      "std": 0.0
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.9166666666666666,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 0.9499999999999998,
+        "std": 1.3597399555105182e-16
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  {
+    "split": "cross_dataset",
+    "method": "fusion",
+    "precision": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9555555555555556,
+      "std": 0.004811252243246928
+    },
+    "fpr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "alerts_per_benign_day": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "brier": {
+      "mean": 0.0758138472820314,
+      "std": 0.010916076420487598
+    },
+    "ece": {
+      "mean": 0.23504675406351894,
+      "std": 0.012910538535074192
+    },
+    "per_attack_recall": {
+      "beacon_like": {
+        "mean": 0.9333333333333332,
+        "std": 1.3597399555105182e-16
+      },
+      "scan_like": {
+        "mean": 0.9777777777777777,
+        "std": 0.00962250448649373
+      }
+    },
+    "per_attack_precision_against_benign": {
+      "beacon_like": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "scan_like": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  }
+]
